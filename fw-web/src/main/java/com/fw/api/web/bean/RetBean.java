@@ -3,10 +3,10 @@ package com.fw.api.web.bean;
 public class RetBean {
 
 	private int key;
-	
+
 	private String msg;
-	
-	public RetBean(int key,String msg){
+
+	public RetBean(int key, String msg) {
 		this.key = key;
 		this.msg = msg;
 	}
@@ -26,6 +26,5 @@ public class RetBean {
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
-	
-	
+
 }

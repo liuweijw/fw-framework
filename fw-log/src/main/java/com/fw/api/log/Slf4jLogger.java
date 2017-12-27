@@ -12,7 +12,7 @@ import ch.qos.logback.classic.joran.JoranConfigurator;
 /**
  * 加载Slf4j的配置文件，详细的可见类org.slf4j.LoggerFactory
  * 
- * @author lw
+ * @author liuweijw
  */
 public class Slf4jLogger implements Lifecycle {
 
@@ -51,7 +51,8 @@ public class Slf4jLogger implements Lifecycle {
 			try {
 				configurator.doConfigure(logback.getInputStream());
 			} catch (Exception e) {
-				new LogConfigException(errorid, e, "Initializing logger configuration faile!");
+				new LogConfigException(errorid, e,
+						"Initializing logger configuration faile!");
 			}
 		}
 	}

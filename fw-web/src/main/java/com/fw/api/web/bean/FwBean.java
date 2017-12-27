@@ -8,19 +8,19 @@ public class FwBean {
 
 	@Value("${server.context-path}")
 	private String contextPath;
-	
+
 	@Value("${fw.server.request.api.baseurl}")
 	private String url;
-	
+
 	@Value("${fw.server.request.api.img}")
 	private String imgContextPath;
-	
+
 	@Value("${fw.server.request.api.opentoken}")
 	private boolean openToken;
-	
+
 	@Value("${fw.server.request.api.ex.show}")
 	private boolean exShow;
-	
+
 	@Value("${fw.server.request.api.token.times}")
 	private int tokenTimes;
 
@@ -47,8 +47,8 @@ public class FwBean {
 	public void setImgContextPath(String imgContextPath) {
 		this.imgContextPath = imgContextPath;
 	}
-	
-	public String getBaseReqUrl(){
+
+	public String getBaseReqUrl() {
 		return this.url + this.contextPath;
 	}
 

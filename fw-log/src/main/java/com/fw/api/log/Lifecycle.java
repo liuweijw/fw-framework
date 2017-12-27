@@ -7,7 +7,7 @@ import javax.annotation.PreDestroy;
  * 
  * 放入Spring容器中的bean如果需要生命周期回调，则需要实现该接口
  *
- * @author:lw
+ * @author:liuweijw
  *
  */
 public interface Lifecycle {

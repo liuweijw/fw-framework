@@ -7,20 +7,21 @@ import org.apache.commons.lang3.StringEscapeUtils;
 /**
  * 防止表单注入
  * 
- * @author LW
+ * @author liuweijw
  *
  */
 public class StringEditor extends PropertyEditorSupport {
 
-    @Override
-    public void setAsText(String text) {
-        setValue(text == null ? null : StringEscapeUtils.escapeHtml4(text.trim()));
-    }
+	@Override
+	public void setAsText(String text) {
+		setValue(text == null ? null : StringEscapeUtils.escapeHtml4(text
+				.trim()));
+	}
 
-    @Override
-    public String getAsText() {
-        Object value = getValue();
-        return value != null ? value.toString() : "";
-    }
-    
+	@Override
+	public String getAsText() {
+		Object value = getValue();
+		return value != null ? value.toString() : "";
+	}
+
 }

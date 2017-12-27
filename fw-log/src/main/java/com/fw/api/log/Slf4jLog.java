@@ -5,7 +5,7 @@ import org.slf4j.Marker;
 /**
  * 日志接口的实现类
  * 
- * @author lw
+ * @author liuweijw
  */
 public class Slf4jLog implements Logger {
 

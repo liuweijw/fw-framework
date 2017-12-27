@@ -5,7 +5,8 @@ import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 
 import com.fw.api.web.domain.Version;
 
-public interface VersionRepository extends JpaRepository<Version, Long>, QueryDslPredicateExecutor<Version> {
+public interface VersionRepository extends JpaRepository<Version, Long>,
+		QueryDslPredicateExecutor<Version> {
 
 	Version findByType(Integer type);
 }

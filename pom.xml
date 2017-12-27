@@ -17,7 +17,7 @@
   	<module>fw-bean</module>
   	<module>fw-core</module>
   	<module>fw-log</module>
-  	<module>fw-secure</module>
+  	<module>fw-security</module>
   	<module>fw-web</module>
   </modules>
   
@@ -40,6 +40,7 @@
         <commons-beanutils>1.9.3</commons-beanutils>
         <querydsl.version>4.1.4</querydsl.version>
         <maven.plugin.version>3.3</maven.plugin.version>
+        <jjwt.version>0.9.0</jjwt.version>
     </properties>
    
     <build>
@@ -118,7 +119,7 @@
             </dependency>
             <dependency>
                 <groupId>com.fw.api</groupId>
-                <artifactId>fw-secure</artifactId>
+                <artifactId>fw-security</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -205,6 +206,12 @@
 			    <groupId>io.springfox</groupId>
 			    <artifactId>springfox-swagger-ui</artifactId>
 			    <version>${springfox.swagger.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt</artifactId>
+				<version>${jjwt.version}</version>
 			</dependency>
         </dependencies>
     </dependencyManagement>

@@ -3,7 +3,7 @@ package com.fw.api.log;
 /**
  * 一个调用slf4j来实现日志的工厂类
  *
- * @author lw
+ * @author liuweijw
  */
 public class Slf4jLogFactory implements ILogFactory {
 

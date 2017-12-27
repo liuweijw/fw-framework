@@ -7,7 +7,7 @@
         <version>1.1.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>fw-secure</artifactId>
+    <artifactId>fw-security</artifactId>
     <groupId>com.fw.api</groupId>
     
     <dependencies>
@@ -25,6 +25,16 @@
 			<groupId>com.fw.api</groupId>
 			<artifactId>fw-aop</artifactId>
 			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
 		</dependency>
     </dependencies>
 </project>

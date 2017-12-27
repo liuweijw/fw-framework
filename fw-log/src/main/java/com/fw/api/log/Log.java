@@ -31,5 +31,5 @@ public class Log {
 	private static ILogFactory getLogFactory(Logtype type) {
 		return new Slf4jLogFactory(type);
 	}
-	
+
 }

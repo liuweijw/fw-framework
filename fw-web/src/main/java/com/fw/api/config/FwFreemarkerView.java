@@ -9,7 +9,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerView;
 /**
  * 自定义配置Freemarker全局变量
  * 
- * @author LW
+ * @author liuweijw
  *
  */
 public class FwFreemarkerView extends FreeMarkerView {
@@ -17,7 +17,7 @@ public class FwFreemarkerView extends FreeMarkerView {
 	@Override
 	protected void exposeHelpers(Map<String, Object> model,
 			HttpServletRequest request) throws Exception {
-		model.put("context", request.getContextPath());  
+		model.put("context", request.getContextPath());
 		super.exposeHelpers(model, request);
 	}
 

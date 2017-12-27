@@ -14,68 +14,68 @@ import javax.persistence.Table;
 public class Version implements Serializable {
 
 	private static final long serialVersionUID = 8080157712721873L;
-	
+
 	public static final String TABLE_NAME = "t_fw_version";
-	
+
 	@Id
 	@GeneratedValue
 	@Column(name = "sid")
 	private Long sid;
-	
+
 	/**
-	 * 类型  1: android 0:ios
+	 * 类型 1: android 0:ios
 	 */
 	@Column(name = "type")
 	private Integer type = 1;
-	
+
 	/**
 	 * 最低版本号
 	 */
 	@Column(name = "min_version")
 	private Integer min_version;
-	
+
 	/**
 	 * 最新版本号
 	 */
 	@Column(name = "new_version")
 	private Integer new_version;
-	
+
 	/**
 	 * 本次升级描述
 	 */
 	@Column(name = "description")
 	private String description;
-	
+
 	/**
 	 * 下载地址
 	 */
 	@Column(name = "download_url")
 	private String download_url;
-	
+
 	/**
 	 * 状态
 	 */
 	@Column(name = "status")
 	private Integer status;
-	
+
 	/**
 	 * 创建人
 	 */
 	@Column(name = "cuser")
 	private String cuser;
-	
+
 	/**
 	 * 创建时间
 	 */
 	@Column(name = "ctime")
 	private Date ctime;
-	
+
 	/**
 	 * 备注
 	 */
 	@Column(name = "memo")
 	private String memo;
-	
+
 	/**
 	 * 关于信息
 	 */
@@ -169,5 +169,5 @@ public class Version implements Serializable {
 	public void setAboutinfo(String aboutinfo) {
 		this.aboutinfo = aboutinfo;
 	}
-	
+
 }

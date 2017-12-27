@@ -3,25 +3,25 @@ package com.fw.api.bean.version;
 public class VersionBean {
 
 	private Integer min_version;
-	
+
 	private Integer new_version;
-	
+
 	private String description;
-	
+
 	private String download_url;
-	
+
 	private Integer status;
-	
+
 	private Integer type = 1;
-	
-	private Integer responseId =0;
-	
+
+	private Integer responseId = 0;
+
 	private Integer retcode = 0;
-	
+
 	private Integer rettype = 0;
-	
+
 	private String retmsg;
-	
+
 	public Integer getMin_version() {
 		return min_version;
 	}

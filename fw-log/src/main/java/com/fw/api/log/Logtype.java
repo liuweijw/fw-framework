@@ -3,7 +3,7 @@ package com.fw.api.log;
 /**
  * 日志类型
  *
- * @author lw
+ * @author liuweijw
  * 
  */
 public enum Logtype {
