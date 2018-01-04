@@ -16,10 +16,13 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fw.api.security.auth.ajax.AjaxAuthenticationProvider;
 import com.fw.api.security.auth.ajax.AjaxLoginProcessingFilter;
+import com.fw.api.security.auth.ajax.AjaxRefreshAuthenticationProvider;
+import com.fw.api.security.auth.ajax.AjaxRefreshTokenAuthenticationFilter;
 import com.fw.api.security.auth.jwt.JwtAuthenticationProvider;
 import com.fw.api.security.auth.jwt.JwtTokenAuthenticationProcessingFilter;
 import com.fw.api.security.auth.jwt.SkipPathRequestMatcher;
@@ -38,6 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	public static final String AUTHENTICATION_HEADER_NAME = "Authorization";
 	public static final String AUTHENTICATION_URL = "/api/auth/login";
 	public static final String REFRESH_TOKEN_URL = "/api/auth/token";
+	public static final String LOGOUT_TOKEN_URL = "/api/auth/logout";
 	public static final String API_ROOT_URL = "/api/**";
 
 	@Autowired
@@ -47,18 +51,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private AuthenticationFailureHandler failureHandler;
 	@Autowired
+	private LogoutSuccessHandler logoutSuccessHandler;
+	@Autowired
 	private AjaxAuthenticationProvider ajaxAuthenticationProvider;
 	@Autowired
+	private AjaxRefreshAuthenticationProvider ajaxRefreshAuthenticationProvider;
+	@Autowired
 	private JwtAuthenticationProvider jwtAuthenticationProvider;
-
 	@Autowired
 	private TokenExtractor tokenExtractor;
-
 	@Autowired
 	private AuthenticationManager authenticationManager;
-
 	@Autowired
 	private ObjectMapper objectMapper;
+	@Autowired
+	private JwtSettings jwtSettings;
 
 	protected AjaxLoginProcessingFilter buildAjaxLoginProcessingFilter(
 			String loginEntryPoint) throws Exception {
@@ -68,6 +75,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return filter;
 	}
 
+	protected AjaxRefreshTokenAuthenticationFilter buildAjaxRefeshTokenAuthenticationFilter(
+			String refeshEntryPoint) throws Exception {
+		AjaxRefreshTokenAuthenticationFilter filter = new AjaxRefreshTokenAuthenticationFilter(
+				refeshEntryPoint,successHandler,failureHandler, tokenExtractor,jwtSettings);
+		filter.setAuthenticationManager(this.authenticationManager);
+		return filter;
+	}
+	
 	protected JwtTokenAuthenticationProcessingFilter buildJwtTokenAuthenticationProcessingFilter(
 			List<String> pathsToSkip, String pattern) throws Exception {
 		SkipPathRequestMatcher matcher = new SkipPathRequestMatcher(
@@ -87,14 +102,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) {
 		auth.authenticationProvider(ajaxAuthenticationProvider);
+		auth.authenticationProvider(ajaxRefreshAuthenticationProvider);
 		auth.authenticationProvider(jwtAuthenticationProvider);
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		List<String> permitAllEndpointList = Arrays.asList(AUTHENTICATION_URL,
-				REFRESH_TOKEN_URL);
+		List<String> permitAllEndpointList = Arrays.asList(
+				AUTHENTICATION_URL,
+				REFRESH_TOKEN_URL,
+				LOGOUT_TOKEN_URL
+		);
 
 		http.csrf()
 				.disable()
@@ -116,10 +135,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers(API_ROOT_URL)
 				.authenticated()
 				
+				.and()
+				.logout()
+				.logoutUrl(LOGOUT_TOKEN_URL)
+				.logoutSuccessHandler(logoutSuccessHandler)
+				.invalidateHttpSession(true)
+				.clearAuthentication(true)
+				
 				// Protected API End-points
 				.and()
 				.addFilterBefore(new SecurityCorsFilter(), UsernamePasswordAuthenticationFilter.class)
 				.addFilterBefore(buildAjaxLoginProcessingFilter(AUTHENTICATION_URL), UsernamePasswordAuthenticationFilter.class)
+				.addFilterBefore(buildAjaxRefeshTokenAuthenticationFilter(REFRESH_TOKEN_URL), UsernamePasswordAuthenticationFilter.class)
 				.addFilterBefore(buildJwtTokenAuthenticationProcessingFilter(permitAllEndpointList, API_ROOT_URL), UsernamePasswordAuthenticationFilter.class);
 	}
 }

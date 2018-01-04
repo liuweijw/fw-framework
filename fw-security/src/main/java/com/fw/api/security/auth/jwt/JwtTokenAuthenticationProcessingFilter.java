@@ -46,12 +46,9 @@ public class JwtTokenAuthenticationProcessingFilter extends
 	public Authentication attemptAuthentication(HttpServletRequest request,
 			HttpServletResponse response) throws AuthenticationException,
 			IOException, ServletException {
-		String tokenPayload = request
-				.getHeader(WebSecurityConfig.AUTHENTICATION_HEADER_NAME);
-		RawAccessJwtToken token = new RawAccessJwtToken(
-				tokenExtractor.extract(tokenPayload));
-		return getAuthenticationManager().authenticate(
-				new JwtAuthenticationToken(token));
+		String tokenPayload = request.getHeader(WebSecurityConfig.AUTHENTICATION_HEADER_NAME);
+		RawAccessJwtToken token = new RawAccessJwtToken(tokenExtractor.extract(tokenPayload));
+		return getAuthenticationManager().authenticate(new JwtAuthenticationToken(token));
 	}
 
 	@Override
