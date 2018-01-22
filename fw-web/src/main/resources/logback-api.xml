@@ -132,7 +132,7 @@
     <!-- 生产环境下，将此级别配置为适合的级别，以免日志文件太多或影响程序性能 -->
     <springProfile name="dev">
     	<logger name="com.fw.api" level="DEBUG" />
-	    <root level="DEBUG">
+	    <root level="INFO">
 	        <appender-ref ref="STDOUT" />
 	    </root>
     </springProfile>

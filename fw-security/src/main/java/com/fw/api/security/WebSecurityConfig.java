@@ -131,16 +131,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.permitAll()
 				
 				.and()
-				.authorizeRequests()
-				.antMatchers(API_ROOT_URL)
-				.authenticated()
-				
-				.and()
 				.logout()
 				.logoutUrl(LOGOUT_TOKEN_URL)
 				.logoutSuccessHandler(logoutSuccessHandler)
 				.invalidateHttpSession(true)
 				.clearAuthentication(true)
+				
+				.and()
+				.authorizeRequests()
+				.antMatchers(API_ROOT_URL)
+				.authenticated()
 				
 				// Protected API End-points
 				.and()
