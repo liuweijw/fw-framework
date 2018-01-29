@@ -2,28 +2,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<parent>
-        <artifactId>liuweijw-framework</artifactId>
-        <groupId>com.liuweijw.framework</groupId>
+        <artifactId>github-liuweijw-framework</artifactId>
+        <groupId>com.github.liuweijw</groupId>
         <version>1.1.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>liuweijw-security</artifactId>
-    <groupId>com.liuweijw.api</groupId>
+    <artifactId>github-liuweijw-security</artifactId>
+    <groupId>com.github.liuweijw.api</groupId>
     
     <dependencies>
     	<dependency>
-			<groupId>com.liuweijw.api</groupId>
-			<artifactId>liuweijw-bean</artifactId>
+			<groupId>com.github.liuweijw.api</groupId>
+			<artifactId>github-liuweijw-bean</artifactId>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.liuweijw.api</groupId>
-			<artifactId>liuweijw-core</artifactId>
+			<groupId>com.github.liuweijw.api</groupId>
+			<artifactId>github-liuweijw-core</artifactId>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.liuweijw.api</groupId>
-			<artifactId>liuweijw-aop</artifactId>
+			<groupId>com.github.liuweijw.api</groupId>
+			<artifactId>github-liuweijw-aop</artifactId>
 			<scope>compile</scope>
 		</dependency>
 		

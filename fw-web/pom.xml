@@ -3,32 +3,32 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	
 	<modelVersion>4.0.0</modelVersion>
-    <artifactId>liuweijw-web</artifactId> 
-    <groupId>com.liuweijw.api</groupId>
+    <artifactId>github-liuweijw-web</artifactId> 
+    <groupId>com.github.liuweijw.api</groupId>
     <packaging>war</packaging>
     
 	<parent>
-        <artifactId>liuweijw-framework</artifactId>
-        <groupId>com.liuweijw.framework</groupId>
+        <artifactId>github-liuweijw-framework</artifactId>
+        <groupId>com.github.liuweijw</groupId>
         <version>1.1.1</version>
     </parent>
     
     <dependencies>
         <dependency>
-			<groupId>com.liuweijw.api</groupId>
-			<artifactId>liuweijw-bean</artifactId>
+			<groupId>com.github.liuweijw.api</groupId>
+			<artifactId>github-liuweijw-bean</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.liuweijw.api</groupId>
-			<artifactId>liuweijw-core</artifactId>
+			<groupId>com.github.liuweijw.api</groupId>
+			<artifactId>github-liuweijw-core</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.liuweijw.api</groupId>
-			<artifactId>liuweijw-aop</artifactId>
+			<groupId>com.github.liuweijw.api</groupId>
+			<artifactId>github-liuweijw-aop</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.liuweijw.api</groupId>
-			<artifactId>liuweijw-security</artifactId>
+			<groupId>com.github.liuweijw.api</groupId>
+			<artifactId>github-liuweijw-security</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
