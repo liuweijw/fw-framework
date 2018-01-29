@@ -12,13 +12,13 @@
         </license>
   </licenses>
   <modules>
-  	<module>liuweijw-aop</module>
-  	<module>liuweijw-base</module>
-  	<module>liuweijw-bean</module>
-  	<module>liuweijw-core</module>
-  	<module>liuweijw-log</module>
-  	<module>liuweijw-security</module>
-  	<module>liuweijw-web</module>
+  	<module>fw-aop</module>
+  	<module>fw-base</module>
+  	<module>fw-bean</module>
+  	<module>fw-core</module>
+  	<module>fw-log</module>
+  	<module>fw-security</module>
+  	<module>fw-web</module>
   </modules>
   
   <properties>
