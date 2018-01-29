@@ -21,7 +21,7 @@
     <contextName>FwApi</contextName>
     <property name="LOG_PATH" value="/usr/web/logs" />
     <!--设置系统日志目录-->
-    <property name="APPDIR" value="fw-api" />
+    <property name="APPDIR" value="liuweijw-api" />
 
     <!-- 日志记录器，日期滚动记录 -->
     <appender name="FILEERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -131,13 +131,13 @@
     
     <!-- 生产环境下，将此级别配置为适合的级别，以免日志文件太多或影响程序性能 -->
     <springProfile name="dev">
-    	<logger name="com.fw.api" level="DEBUG" />
+    	<logger name="com.liuweijw.api" level="DEBUG" />
 	    <root level="INFO">
 	        <appender-ref ref="STDOUT" />
 	    </root>
     </springProfile>
     <springProfile name="proj">
-    	<logger name="com.fw.api" level="INFO" />
+    	<logger name="com.liuweijw.api" level="INFO" />
 	    <root level="INFO">
 	        <appender-ref ref="FILEERROR" />
 	        <appender-ref ref="FILEWARN" />

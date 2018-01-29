@@ -2,28 +2,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<parent>
-        <artifactId>fw-framework</artifactId>
-        <groupId>com.framework</groupId>
+        <artifactId>liuweijw-framework</artifactId>
+        <groupId>com.liuweijw.framework</groupId>
         <version>1.1.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>fw-security</artifactId>
-    <groupId>com.fw.api</groupId>
+    <artifactId>liuweijw-security</artifactId>
+    <groupId>com.liuweijw.api</groupId>
     
     <dependencies>
     	<dependency>
-			<groupId>com.fw.api</groupId>
-			<artifactId>fw-bean</artifactId>
+			<groupId>com.liuweijw.api</groupId>
+			<artifactId>liuweijw-bean</artifactId>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.fw.api</groupId>
-			<artifactId>fw-core</artifactId>
+			<groupId>com.liuweijw.api</groupId>
+			<artifactId>liuweijw-core</artifactId>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.fw.api</groupId>
-			<artifactId>fw-aop</artifactId>
+			<groupId>com.liuweijw.api</groupId>
+			<artifactId>liuweijw-aop</artifactId>
 			<scope>compile</scope>
 		</dependency>
 		
