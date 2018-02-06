@@ -10,7 +10,7 @@
 	<parent>
         <artifactId>github-liuweijw-framework</artifactId>
         <groupId>com.github.liuweijw</groupId>
-        <version>1.1.1</version>
+        <version>1.1.1-SNAPSHOT</version>
     </parent>
     
     <dependencies>
